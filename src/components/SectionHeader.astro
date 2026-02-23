@@ -1,0 +1,45 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  align?: 'left' | 'center';
+}
+
+const {
+  eyebrow,
+  title,
+  align = 'center'
+} = Astro.props;
+---
+
+<div class={`section-header ${align === 'center' ? 'text-center' : 'text-left'}`}>
+  {eyebrow && <p class="eyebrow fade-up">{eyebrow}</p>}
+  <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif text-off-white fade-up">{title}</h2>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const gsap = (window as any).gsap;
+    const ScrollTrigger = (window as any).ScrollTrigger;
+    
+    if (!gsap) return;
+
+    document.querySelectorAll('.section-header').forEach((header) => {
+      gsap.fromTo(header.querySelectorAll('.fade-up'),
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: header,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    });
+  });
+</script>

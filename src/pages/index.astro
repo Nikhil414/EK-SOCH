@@ -1,0 +1,469 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Marquee from "../components/Marquee.astro";
+import Footer from "../components/Footer.astro";
+import {
+  Play,
+  Mic,
+  Users,
+  GraduationCap,
+  Globe,
+  ArrowRight,
+  Target,
+  TrendingUp,
+  Mail,
+  CheckCircle,
+  Quote,
+  Heart,
+  MessageCircle,
+  Sparkles,
+  Building,
+  Briefcase,
+  Palette,
+} from "lucide-astro";
+---
+
+<Layout title="Ek Soch | Where Powerful Ideas Become Powerful Movements">
+  <Navbar />
+
+  <main>
+    <!-- HERO SECTION -->
+    <section
+      class="min-h-screen flex items-center pt-20 relative overflow-hidden"
+    >
+      <!-- Background gradient -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal to-gold/10"
+      >
+      </div>
+
+      <div class="container relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Left: Text Content -->
+          <div class="order-2 lg:order-1">
+            <h1 class="headline hero-headline fade-up">
+              Where Powerful Ideas <br />
+              <span class="text-gold">Become Powerful Movements</span>
+            </h1>
+            <p
+              class="text-soft-grey text-lg md:text-xl mt-8 leading-relaxed hero-description fade-up max-w-xl"
+            >
+              Ek Soch is India’s leading storytelling and podcast platform
+              empowering creators, entrepreneurs, and changemakers to inspire
+              millions.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mt-10 hero-cta fade-up">
+              <a
+                href="https://calendly.com/niralepandya/book-your-slot-ek-soch-with-nirale-pandya-clone?back=1&month=2026-02"
+                class="btn-primary"
+              >
+                Book Your Podcast
+              </a>
+              <a
+                href="https://www.youtube.com/@niralepandya"
+                target="_blank"
+                class="px-8 py-3 border border-soft-grey/30 rounded-full text-off-white hover:border-gold hover:text-gold transition-all uppercase tracking-widest text-xs font-semibold"
+              >
+                Explore Episodes
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Podcast Video -->
+          <div class="order-1 lg:order-2 hero-image-container lg:-mt-12">
+            <div
+              class="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden rounded-xl border border-soft-grey/10 shadow-2xl"
+            >
+              <!-- Video wrapper to crop letterboxing -->
+              <div class="absolute inset-0 overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/__1ncK_wfWk?autoplay=1&mute=1&loop=1&playlist=__1ncK_wfWk&controls=0&showinfo=0&rel=0&modestbranding=1"
+                  class="absolute top-1/2 left-1/2 w-[300%] h-[300%]"
+                  style="transform: translate(-50%, -50%);"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  loading="lazy"></iframe>
+              </div>
+              <!-- Gradient overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent pointer-events-none"
+              >
+              </div>
+              <!-- Clickable overlay to YouTube -->
+              <a
+                href="https://www.youtube.com/@niralepandya"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="absolute inset-0 z-10 cursor-pointer"
+                aria-label="Visit Ek Soch YouTube Channel"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER'S NOTE -->
+    <section class="section bg-deep-black overflow-hidden">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="founder-image fade-in">
+            <div
+              class="aspect-[4/5] overflow-hidden rounded-2xl relative border border-soft-grey/20"
+            >
+              <img
+                src="/images/For_About_Page.jpeg"
+                alt="Nirale Pandya - Founder of Ek Soch"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-deep-black/60 to-transparent"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div class="founder-content space-y-8">
+            <p class="eyebrow">Founder’s Note</p>
+            <h2
+              class="text-4xl md:text-5xl font-serif text-off-white leading-tight italic"
+            >
+              "Ek Soch was born from a simple belief — every person has a story
+              that deserves to be heard."
+            </h2>
+            <div class="space-y-6 text-soft-grey text-lg leading-relaxed">
+              <p>
+                Through years of working with entrepreneurs and creators, I
+                witnessed powerful ideas remain unheard due to fear and lack of
+                platforms.
+              </p>
+              <p>
+                Ek Soch was created to amplify authentic voices and turn stories
+                into impact.
+              </p>
+              <p class="text-off-white font-medium">
+                This is your space. This is your stage.
+              </p>
+              <p class="text-gold font-serif text-2xl pt-4">— Nirale Pandya</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE SERVE -->
+    <section class="section bg-charcoal/30">
+      <div class="container">
+        <div class="text-center mb-16">
+          <p class="eyebrow text-2xl md:text-3xl">Who We Serve</p>
+          <h2 class="text-4xl md:text-5xl font-serif text-off-white mt-4">
+            If you have a story — <span class="text-gold"
+              >we help you share it.</span
+            >
+          </h2>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-8">
+          {
+            [
+              { title: "Entrepreneurs & Founders", icon: Building },
+              { title: "Coaches & Consultants", icon: Users },
+              { title: "Creators & Influencers", icon: Sparkles },
+              { title: "Corporate Leaders", icon: Briefcase },
+              { title: "Artists & Changemakers", icon: Palette },
+            ].map((item) => (
+              <div class="serve-card p-12 bg-deep-black border border-soft-grey/10 rounded-2xl hover:border-gold/30 transition-all text-center group min-h-[300px] flex flex-col justify-center items-center w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.33%-2rem)] max-w-[400px]">
+                <div class="w-20 h-20 bg-gold/5 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gold/10 transition-colors">
+                  <item.icon class="w-10 h-10 text-gold" />
+                </div>
+                <h3 class="text-2xl text-off-white font-medium">
+                  {item.title}
+                </h3>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE OFFER -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-16">
+          <p class="eyebrow text-2xl md:text-3xl">Our Services</p>
+          <h2 class="text-4xl md:text-5xl font-serif text-off-white mt-4">
+            What We Offer
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {
+            [
+              {
+                title: "🎙 Podcast Platform",
+                desc: "Professional recording, editing, and global distribution.",
+                icon: Mic,
+              },
+              {
+                title: "🎯 Personal Branding & PR",
+                desc: "Build authority and visibility in your industry.",
+                icon: Target,
+              },
+              {
+                title: "📚 Training & Mentorship",
+                desc: "Learn storytelling, podcasting, and content mastery.",
+                icon: GraduationCap,
+              },
+              {
+                title: "📢 Marketing & Growth",
+                desc: "Lead generation and audience expansion.",
+                icon: TrendingUp,
+              },
+            ].map((item) => (
+              <div class="offer-card group p-10 bg-deep-black border border-soft-grey/10 rounded-2xl hover:border-gold/30 transition-all">
+                <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                  <item.icon class="w-8 h-8 text-gold" />
+                </div>
+                <h3 class="text-2xl font-serif text-off-white mb-4">
+                  {item.title}
+                </h3>
+                <p class="text-soft-grey leading-relaxed">{item.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/services" class="btn-primary"> View All Services </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <Marquee />
+
+    <!-- FEATURED VIDEOS -->
+    <section id="episodes" class="section bg-deep-black">
+      <div class="container">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
+        >
+          <div class="fade-up">
+            <p class="eyebrow text-gold">Latest Content</p>
+            <h2 class="text-4xl md:text-5xl font-serif text-off-white mt-4">
+              Featured Videos
+            </h2>
+            <p class="text-soft-grey mt-4 max-w-xl">
+              Watch our most impactful conversations and storytelling sessions
+              that are shaping movements across India.
+            </p>
+          </div>
+          <a
+            href="https://www.youtube.com/@niralepandya"
+            target="_blank"
+            class="text-gold flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest text-xs font-semibold fade-up"
+          >
+            Visit Our YouTube Channel <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {
+            [
+              {
+                id: "OAquWWLDmMU",
+                // title: "How to Build an Influential Brand",
+              },
+              {
+                id: "KtOnMKz36Zg",
+                // title: "The Power of Authentic Storytelling",
+              },
+              {
+                id: "IcT2cMcTjJY",
+                // title: "Scaling Your Impact & Vision",
+              },
+            ].map((video) => (
+              <div class="video-card group fade-in">
+                <div class="aspect-video overflow-hidden rounded-xl border border-soft-grey/10 shadow-2xl relative bg-charcoal mb-6 group-hover:border-gold/30 transition-all">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
+                    class="absolute inset-0 w-full h-full"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                  />
+                </div>
+                <h3 class="text-lg font-medium text-off-white group-hover:text-gold transition-colors leading-tight">
+                  {video.title}
+                </h3>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section border-y border-soft-grey/10 bg-deep-black">
+      <div class="container">
+        <div class="text-center mb-16">
+          <p class="eyebrow text-2xl md:text-3xl">Testimonials</p>
+          <h2 class="text-4xl md:text-5xl font-serif text-off-white mt-4">
+            Voices of Impact
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          {
+            [
+              {
+                quote: "Ek Soch helped me build my personal brand.",
+                author: "Entrepreneur, Mumbai",
+              },
+              {
+                quote: "One of the best storytelling platforms.",
+                author: "Coach, Delhi",
+              },
+            ].map((item) => (
+              <div class="p-12 bg-charcoal/30 rounded-2xl border border-soft-grey/10 relative hover:border-gold/30 transition-all min-h-[300px] flex flex-col justify-center">
+                <Quote class="w-12 h-12 text-gold/20 absolute top-8 right-8" />
+                <p class="text-3xl font-serif text-off-white italic mb-8 leading-relaxed">
+                  “{item.quote}”
+                </p>
+                <p class="text-gold tracking-widest uppercase font-medium">
+                  — {item.author}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN COMMUNITY -->
+    <section class="section">
+      <div class="container">
+        <div
+          class="max-w-4xl mx-auto bg-gold p-12 md:p-20 rounded-[2rem] text-center text-deep-black relative overflow-hidden"
+        >
+          <div class="absolute top-0 right-0 p-8 opacity-10">
+            <Heart class="w-64 h-64" />
+          </div>
+          <p class="uppercase tracking-[0.2em] text-xs font-bold mb-6">
+            Built for Changemakers
+          </p>
+          <h2 class="text-4xl md:text-6xl font-serif mb-8 leading-tight">
+            Join Our Newsletter
+          </h2>
+          <p class="text-xl mb-12 opacity-90 max-w-xl mx-auto">
+            Join 10,000+ changemakers for weekly insights, storytelling tips,
+            and exclusive episode updates.
+          </p>
+          <div class="flex justify-center max-w-lg mx-auto">
+            <iframe
+              src="https://niirmaangrowthhub.substack.com/embed"
+              width="480"
+              height="320"
+              style="border:1px solid #EEE; background:white;"
+              frameborder="0"
+              scrolling="no"
+              class="w-full rounded-xl shadow-2xl"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- READY TO SHARE -->
+    <section class="section bg-deep-black">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl md:text-6xl font-serif text-off-white mb-6">
+            Ready to Share Your Story?
+          </h2>
+          <p class="text-xl text-soft-grey mb-12">
+            Let’s create impact together and amplify your voice across the
+            globe.
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              href="https://calendly.com/niralepandya/book-your-slot-ek-soch-with-nirale-pandya-clone?back=1&month=2026-02"
+              class="btn-primary"
+            >
+              Book Session
+            </a>
+            <a
+              href="https://forms.gle/2UasDBwy4mxx7YQH9"
+              class="px-8 py-4 border border-soft-grey/30 rounded-full text-off-white hover:border-gold hover:text-gold transition-all uppercase tracking-widest text-xs font-semibold"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const gsap = (window as any).gsap;
+    const ScrollTrigger = (window as any).ScrollTrigger;
+
+    if (!gsap || !ScrollTrigger) return;
+
+    // Fade up animations
+    const fadeUps = document.querySelectorAll(".fade-up");
+    if (fadeUps.length > 0) {
+      gsap.fromTo(
+        fadeUps,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          delay: 0.3,
+        },
+      );
+    }
+
+    // Standard section transitions
+    const sections = [
+      "founder-image",
+      "founder-content",
+      "serve-card",
+      "offer-card",
+      "video-card",
+    ];
+
+    sections.forEach((cls) => {
+      const elements = document.querySelectorAll(`.${cls}`);
+      if (elements.length > 0) {
+        gsap.fromTo(
+          elements,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: elements[0],
+              start: "top 85%",
+            },
+          },
+        );
+      }
+    });
+
+    ScrollTrigger.refresh();
+  });
+</script>

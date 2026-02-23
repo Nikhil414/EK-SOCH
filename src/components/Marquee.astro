@@ -1,0 +1,71 @@
+---
+interface Props {
+  text?: string;
+}
+
+const {
+  text = "DEPTH OVER NOISE • IDEAS OVER INFLUENCE • CONVERSATIONS CHANGE LIVES • ",
+} = Astro.props;
+
+// Duplicate text for seamless loop
+const fullText = text.repeat(4);
+---
+
+<section
+  class="marquee-section py-16 md:py-24 overflow-hidden border-y border-soft-grey/10"
+>
+  <div class="marquee-container relative">
+    <div class="marquee-track flex animate-marquee">
+      <span class="hollow-text">{fullText}</span>
+      <span class="hollow-text">{fullText}</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-section {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 0, 0, 0.2),
+      transparent
+    );
+  }
+
+  .marquee-container {
+    width: 100%;
+  }
+
+  .marquee-track {
+    width: fit-content;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  .hollow-text {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 400;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(161, 161, 161, 0.4);
+    text-stroke: 1px rgba(161, 161, 161, 0.4);
+    white-space: nowrap;
+    user-select: none;
+    padding-right: 0.5em;
+  }
+
+  .marquee-section:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+</style>

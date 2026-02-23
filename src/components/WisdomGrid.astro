@@ -1,0 +1,81 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import ServiceCard from './ServiceCard.astro';
+
+interface CardData {
+  imageSrc: string;
+  title: string;
+  link: string;
+}
+
+const cards: CardData[] = [
+  {
+    imageSrc: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80",
+    title: "Podcasts",
+    link: "#podcasts"
+  },
+  {
+    imageSrc: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
+    title: "Workshops",
+    link: "#workshops"
+  },
+  {
+    imageSrc: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80",
+    title: "Training",
+    link: "#training"
+  }
+];
+---
+
+<section id="training" class="section">
+  <div class="container">
+    <div class="mb-16">
+      <SectionHeader 
+        eyebrow="The 3 Pillars" 
+        title="Pathways to Wisdom"
+      />
+    </div>
+    
+    <div class="wisdom-grid grid md:grid-cols-3 gap-6 lg:gap-8">
+      {cards.map((card, index) => (
+        <div class="wisdom-card">
+          <ServiceCard 
+            imageSrc={card.imageSrc}
+            title={card.title}
+            link={card.link}
+            index={index}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const gsap = (window as any).gsap;
+    const ScrollTrigger = (window as any).ScrollTrigger;
+    
+    if (!gsap) return;
+
+    // Staggered card reveal
+    gsap.fromTo('.wisdom-card',
+      { 
+        y: 60, 
+        opacity: 0 
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.wisdom-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+  });
+</script>

@@ -1,0 +1,235 @@
+---
+import { Menu, X } from "lucide-astro";
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+>
+  <div class="container">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="text-2xl font-serif font-medium tracking-tight text-off-white hover:text-gold transition-colors"
+      >
+        Ek Soch
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <a
+          href="/"
+          class="text-sm font-medium text-soft-grey hover:text-off-white transition-colors uppercase tracking-widest"
+        >
+          Home
+        </a>
+        <a
+          href="/about"
+          class="text-sm font-medium text-soft-grey hover:text-off-white transition-colors uppercase tracking-widest"
+        >
+          About
+        </a>
+        <a
+          href="/services"
+          class="text-sm font-medium text-soft-grey hover:text-off-white transition-colors uppercase tracking-widest"
+        >
+          Services
+        </a>
+        <a
+          href="/training"
+          class="text-sm font-medium text-soft-grey hover:text-off-white transition-colors uppercase tracking-widest"
+        >
+          Training
+        </a>
+        <a
+          href="/podcast"
+          class="text-sm font-medium text-soft-grey hover:text-off-white transition-colors uppercase tracking-widest"
+        >
+          Podcast
+        </a>
+        <a
+          href="/blog"
+          class="text-sm font-medium text-soft-grey hover:text-off-white transition-colors uppercase tracking-widest"
+        >
+          Blog
+        </a>
+        <a
+          href="/partners"
+          class="text-sm font-medium text-soft-grey hover:text-off-white transition-colors uppercase tracking-widest"
+        >
+          Partners
+        </a>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <a
+          href="https://forms.gle/2UasDBwy4mxx7YQH9"
+          class="inline-flex items-center gap-2 px-6 py-2.5 bg-gold text-deep-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-off-white transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="menu-toggle"
+        class="md:hidden p-2 text-off-white hover:text-gold transition-colors"
+        aria-label="Toggle menu"
+      >
+        <Menu class="w-6 h-6 menu-open-icon" />
+        <X class="w-6 h-6 menu-close-icon hidden" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 bg-charcoal z-[100] transform translate-x-full transition-transform duration-500 ease-out"
+  >
+    <!-- Header with close button -->
+    <div
+      class="container h-20 flex items-center justify-between border-b border-soft-grey/20"
+    >
+      <a
+        href="/"
+        class="text-2xl font-serif font-medium tracking-tight text-off-white"
+      >
+        Ek Soch
+      </a>
+      <button
+        id="menu-close"
+        class="p-2 text-off-white hover:text-gold transition-colors"
+        aria-label="Close menu"
+      >
+        <X class="w-6 h-6" />
+      </button>
+    </div>
+
+    <div class="container py-10">
+      <div class="flex flex-col gap-6">
+        <a
+          href="/"
+          class="text-2xl font-serif text-off-white hover:text-gold transition-colors mobile-nav-link"
+        >
+          Home
+        </a>
+        <a
+          href="/about"
+          class="text-2xl font-serif text-off-white hover:text-gold transition-colors mobile-nav-link"
+        >
+          About Ek Soch
+        </a>
+        <a
+          href="/services"
+          class="text-2xl font-serif text-off-white hover:text-gold transition-colors mobile-nav-link"
+        >
+          Services
+        </a>
+        <a
+          href="/training"
+          class="text-2xl font-serif text-off-white hover:text-gold transition-colors mobile-nav-link"
+        >
+          Training
+        </a>
+        <a
+          href="/podcast"
+          class="text-2xl font-serif text-off-white hover:text-gold transition-colors mobile-nav-link"
+        >
+          Podcast
+        </a>
+        <a
+          href="/blog"
+          class="text-2xl font-serif text-off-white hover:text-gold transition-colors mobile-nav-link"
+        >
+          Blog
+        </a>
+        <a
+          href="/partners"
+          class="text-2xl font-serif text-off-white hover:text-gold transition-colors mobile-nav-link"
+        >
+          Partners & Sponsors
+        </a>
+        <div class="pt-6 border-t border-soft-grey/20">
+          <a
+            href="https://forms.gle/2UasDBwy4mxx7YQH9"
+            class="btn-primary inline-block mobile-nav-link"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById("navbar");
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > 50) {
+      navbar?.classList.add("bg-charcoal/90", "backdrop-blur-md", "shadow-lg");
+    } else {
+      navbar?.classList.remove(
+        "bg-charcoal/90",
+        "backdrop-blur-md",
+        "shadow-lg",
+      );
+    }
+
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuClose = document.getElementById("menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+  function openMenu() {
+    mobileMenu?.classList.remove("translate-x-full");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.add("translate-x-full");
+    document.body.style.overflow = "";
+  }
+
+  menuToggle?.addEventListener("click", openMenu);
+  menuClose?.addEventListener("click", closeMenu);
+
+  // Close menu on link click
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>
+
+<style>
+  #navbar {
+    background: rgba(28, 28, 28, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  #navbar.bg-charcoal\/90 {
+    background: rgba(28, 28, 28, 0.98);
+  }
+
+  #mobile-menu {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #1c1c1c !important;
+    overflow-y: auto;
+  }
+</style>

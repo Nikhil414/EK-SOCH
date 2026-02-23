@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import {
+  Mic,
+  Target,
+  MessageCircle,
+  Video,
+  Palette,
+  TrendingUp,
+  ArrowRight,
+  CheckCircle,
+  PenTool,
+  Award,
+  Calendar,
+  Users,
+} from "lucide-astro";
+---
+
+<Layout title="Training | Ek Soch">
+  <Navbar />
+
+  <main
+    class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  >
+    <!-- Sophisticated Light/Dark Background -->
+    <div class="absolute inset-0 bg-deep-black -z-20"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-charcoal via-deep-black to-gold/5 -z-10"
+    >
+    </div>
+    <div
+      class="absolute top-1/4 right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[120px] -z-10"
+    >
+    </div>
+    <div
+      class="absolute bottom-1/4 left-1/4 w-80 h-80 bg-charcoal rounded-full blur-[100px] -z-10 opacity-50"
+    >
+    </div>
+
+    <div class="container relative z-10 text-center px-4">
+      <div class="space-y-6 max-w-2xl mx-auto">
+        <p class="eyebrow tracking-[0.3em] font-medium text-gold/60 fade-up">
+          Training & Mentorship
+        </p>
+        <h1
+          class="text-6xl md:text-8xl font-serif text-off-white tracking-tight fade-up delay-100"
+        >
+          Coming <span class="italic text-gold italic-reveal">Soon</span>
+        </h1>
+        <div class="w-24 h-px bg-gold/30 mx-auto mt-8 fade-up delay-200"></div>
+        <p
+          class="text-soft-grey text-lg md:text-xl font-light tracking-wide fade-up delay-300 max-w-lg mx-auto leading-relaxed"
+        >
+          We are crafting a world-class training experience for creators and
+          visionaries. Stay tuned for the launch of our transformation programs.
+        </p>
+      </div>
+    </div>
+
+    <!-- Scroll indicator for aesthetic completeness -->
+    <div
+      class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-20 hidden md:block"
+    >
+      <div class="w-px h-16 bg-gradient-to-b from-gold to-transparent"></div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const gsap = (window as any).gsap;
+    const ScrollTrigger = (window as any).ScrollTrigger;
+
+    if (!gsap) return;
+
+    // Hero animation
+    gsap.fromTo(
+      ".fade-up",
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        delay: 0.3,
+      },
+    );
+
+    // Program cards
+    gsap.fromTo(
+      ".program-card",
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".program-card", start: "top 85%" },
+      },
+    );
+
+    // Stats items
+    gsap.fromTo(
+      ".stats-item",
+      { x: -30, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".stats-item", start: "top 85%" },
+      },
+    );
+  });
+</script>

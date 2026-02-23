@@ -1,0 +1,254 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { posts } from "../../data/blog-posts";
+import {
+    User,
+    Calendar,
+    ArrowLeft,
+    Clock,
+    Share2,
+    Facebook,
+    Twitter,
+    Linkedin,
+} from "lucide-astro";
+
+export async function getStaticPaths() {
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={`${post.title} | Ek Soch`}>
+    <Navbar />
+
+    <main class="bg-deep-black min-h-screen">
+        <!-- Progress Bar (Optional, can add JS for scroll) -->
+        <div class="fixed top-0 left-0 w-full h-1 z-50 bg-charcoal">
+            <div class="h-full bg-gold w-0" id="reading-progress"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img
+                    src={post.image}
+                    alt={post.title}
+                    class="w-full h-full object-cover opacity-20"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-deep-black via-deep-black/90 to-transparent"
+                >
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-deep-black/60 to-transparent"
+                >
+                </div>
+            </div>
+
+            <div class="container relative z-10 px-4 md:px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <a
+                        href="/blog"
+                        class="inline-flex items-center gap-2 text-soft-grey hover:text-gold transition-colors mb-8 text-sm uppercase tracking-widest font-medium fade-up"
+                    >
+                        <ArrowLeft class="w-4 h-4" /> Back to Insights
+                    </a>
+
+                    <div class="mb-6 fade-up delay-100">
+                        <span
+                            class="px-4 py-2 rounded-full border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest bg-gold/5 backdrop-blur-md"
+                        >
+                            {post.category}
+                        </span>
+                    </div>
+
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-7xl font-serif text-off-white leading-tight mb-8 fade-up delay-200"
+                    >
+                        {post.title}
+                    </h1>
+
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-6 text-soft-grey text-sm font-medium fade-up delay-300"
+                    >
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="w-10 h-10 rounded-full bg-charcoal border border-soft-grey/10 overflow-hidden"
+                            >
+                                <!-- Using a generic avatar here or could be added to data -->
+                                <User
+                                    class="w-full h-full p-2 text-soft-grey"
+                                />
+                            </div>
+                            <span class="text-off-white">{post.author}</span>
+                        </div>
+                        <span class="w-1 h-1 rounded-full bg-soft-grey/30"
+                        ></span>
+                        <div class="flex items-center gap-2">
+                            <Calendar class="w-4 h-4" />
+                            {post.date}
+                        </div>
+                        <span class="w-1 h-1 rounded-full bg-soft-grey/30"
+                        ></span>
+                        <div class="flex items-center gap-2">
+                            <Clock class="w-4 h-4" />
+                            5 min read
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <article class="relative z-10 pb-24">
+            <div class="container px-4 md:px-6">
+                <div
+                    class="grid lg:grid-cols-[1fr_300px] gap-12 max-w-6xl mx-auto"
+                >
+                    <!-- Main Content -->
+                    <div class="max-w-3xl mx-auto lg:mx-0">
+                        <div
+                            class="prose prose-lg prose-invert text-soft-grey/90 leading-relaxed font-light
+                        prose-headings:font-serif prose-headings:text-off-white prose-headings:font-medium
+                        prose-p:mb-6 prose-strong:text-off-white prose-strong:font-bold
+                        prose-a:text-gold prose-a:no-underline hover:prose-a:underline
+                        prose-blockquote:border-l-gold prose-blockquote:bg-charcoal/20 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:italic prose-blockquote:text-off-white
+                        prose-ul:list-disc prose-ul:pl-6 prose-li:mb-2
+                        marker:prose-li:text-gold"
+                        >
+                            <p
+                                class="lead text-xl md:text-2xl text-off-white font-serif italic mb-10 border-l-4 border-gold pl-6"
+                            >
+                                {post.excerpt}
+                            </p>
+
+                            <div set:html={post.content} />
+                        </div>
+
+                        <!-- Share Section -->
+                        <div
+                            class="mt-16 pt-8 border-t border-soft-grey/10 flex items-center justify-between"
+                        >
+                            <p class="text-off-white font-serif text-lg">
+                                Share this article
+                            </p>
+                            <div class="flex gap-4">
+                                <button
+                                    class="w-10 h-10 rounded-full bg-charcoal flex items-center justify-center text-soft-grey hover:bg-gold hover:text-deep-black transition-all"
+                                >
+                                    <Twitter class="w-5 h-5" />
+                                </button>
+                                <button
+                                    class="w-10 h-10 rounded-full bg-charcoal flex items-center justify-center text-soft-grey hover:bg-gold hover:text-deep-black transition-all"
+                                >
+                                    <Linkedin class="w-5 h-5" />
+                                </button>
+                                <button
+                                    class="w-10 h-10 rounded-full bg-charcoal flex items-center justify-center text-soft-grey hover:bg-gold hover:text-deep-black transition-all"
+                                >
+                                    <Facebook class="w-5 h-5" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="space-y-12">
+                        <!-- Newsletter Widget -->
+                        <div
+                            class="p-8 rounded-2xl bg-charcoal/30 border border-soft-grey/10 sticky top-32"
+                        >
+                            <p class="eyebrow text-gold mb-4">Newsletter</p>
+                            <h3 class="text-2xl font-serif text-off-white mb-4">
+                                Join the Movement
+                            </h3>
+                            <p class="text-soft-grey text-sm mb-6">
+                                Get insights on storytelling and growth
+                                delivered to your inbox weekly.
+                            </p>
+                            <div class="w-full">
+                                <iframe
+                                    src="https://niirmaangrowthhub.substack.com/embed"
+                                    width="480"
+                                    height="320"
+                                    style="border:1px solid #EEE; background:white;"
+                                    frameborder="0"
+                                    scrolling="no"
+                                    class="w-full rounded-xl shadow-lg"
+                                ></iframe>
+                            </div>
+                        </div>
+
+                        <!-- Related Topics -->
+                        <div>
+                            <h3
+                                class="text-lg font-serif text-off-white mb-6 border-b border-soft-grey/10 pb-2"
+                            >
+                                Related Topics
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                {
+                                    [
+                                        "Personal Branding",
+                                        "Storytelling",
+                                        "Growth",
+                                        "Mindset",
+                                    ].map((tag) => (
+                                        <a
+                                            href="/blog"
+                                            class="px-3 py-1.5 bg-charcoal/50 text-soft-grey text-xs rounded-md hover:text-gold hover:bg-charcoal transition-colors"
+                                        >
+                                            #{tag}
+                                        </a>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <Footer />
+</Layout>
+
+<script>
+    // Simple reading progress bar
+    window.addEventListener("scroll", () => {
+        const winScroll =
+            document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const progressBar = document.getElementById("reading-progress");
+        if (progressBar) {
+            progressBar.style.width = scrolled + "%";
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const gsap = (window as any).gsap;
+        if (!gsap) return;
+
+        gsap.fromTo(
+            ".fade-up",
+            { y: 30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out",
+                delay: 0.2,
+            },
+        );
+    });
+</script>

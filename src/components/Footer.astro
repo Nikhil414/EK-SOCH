@@ -1,0 +1,147 @@
+---
+import {
+  Instagram,
+  Twitter,
+  Youtube,
+  Linkedin,
+  ArrowRight,
+} from "lucide-astro";
+---
+
+<footer id="contact" class="bg-deep-black pt-20 pb-10">
+  <div class="container">
+    <!-- Main Footer Content -->
+    <div class="grid lg:grid-cols-2 gap-16 pb-16 border-b border-soft-grey/10">
+      <!-- Left: Brand & Newsletter -->
+      <div class="space-y-8">
+        <div>
+          <a
+            href="/"
+            class="text-4xl font-serif font-medium text-off-white hover:text-gold transition-colors"
+          >
+            Ek Soch
+          </a>
+          <p class="mt-4 text-soft-grey max-w-md">
+            Empowering creators, entrepreneurs, and changemakers to turn stories
+            into impact and ideas into movements.
+          </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="space-y-4">
+          <p class="text-sm uppercase tracking-widest text-gold">
+            Subscribe to Our Newsletter
+          </p>
+          <div class="w-full max-w-md">
+            <iframe
+              src="https://niirmaangrowthhub.substack.com/embed"
+              width="480"
+              height="320"
+              style="border:1px solid #EEE; background:white;"
+              frameborder="0"
+              scrolling="no"
+              class="w-full rounded-xl shadow-lg"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Quick Links -->
+      <div class="lg:justify-end">
+        <p class="text-sm uppercase tracking-widest text-gold mb-6">
+          Quick Links
+        </p>
+        <div class="flex flex-wrap gap-x-4 gap-y-2 text-soft-grey text-lg">
+          <a href="/" class="hover:text-off-white transition-colors">Home</a>
+          <span class="text-soft-grey/30">|</span>
+          <a href="/about" class="hover:text-off-white transition-colors"
+            >About</a
+          >
+          <span class="text-soft-grey/30">|</span>
+          <a href="/podcast" class="hover:text-off-white transition-colors"
+            >Podcast</a
+          >
+          <span class="text-soft-grey/30">|</span>
+          <a href="/services" class="hover:text-off-white transition-colors"
+            >Services</a
+          >
+          <span class="text-soft-grey/30">|</span>
+          <a href="/training" class="hover:text-off-white transition-colors"
+            >Training</a
+          >
+          <span class="text-soft-grey/30">|</span>
+          <a href="/partners" class="hover:text-off-white transition-colors"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div
+      class="pt-8 flex flex-col md:flex-row justify-between items-center gap-6"
+    >
+      <!-- Copyright -->
+      <p class="text-soft-grey text-sm">
+        © {new Date().getFullYear()} Ek Soch. All rights reserved.
+      </p>
+
+      <!-- Social Links -->
+      <div class="flex items-center gap-6">
+        <a
+          href="https://www.instagram.com/niralepandya"
+          class="text-soft-grey hover:text-gold transition-colors"
+          aria-label="Instagram"
+        >
+          <Instagram class="w-5 h-5" />
+        </a>
+        <!-- <a
+          href="#"
+          class="text-soft-grey hover:text-gold transition-colors"
+          aria-label="Twitter"
+        >
+          <Twitter class="w-5 h-5" />
+        </a> -->
+        <a
+          href="https://www.youtube.com/@niralepandya"
+          class="text-soft-grey hover:text-gold transition-colors"
+          aria-label="YouTube"
+        >
+          <Youtube class="w-5 h-5" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/niralepandya/"
+          class="text-soft-grey hover:text-gold transition-colors"
+          aria-label="LinkedIn"
+        >
+          <Linkedin class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const gsap = (window as any).gsap;
+    const ScrollTrigger = (window as any).ScrollTrigger;
+
+    if (!gsap) return;
+
+    gsap.fromTo(
+      "footer > .container > *",
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "footer",
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      },
+    );
+  });
+</script>
