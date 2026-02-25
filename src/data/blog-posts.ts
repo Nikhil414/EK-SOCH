@@ -42,7 +42,7 @@ export const posts = [
                         <div class="flex-shrink-0 w-full md:w-44 group relative">
                             <div class="absolute -inset-1 bg-gold/20 rounded-xl blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
                             <img 
-                                src="/images/kaushall.jpeg" 
+                                src="/images/DSC04738.jpg.jpeg"
                                 alt="Kaushall Prakash" 
                                 class="relative w-full aspect-[4/5] object-cover rounded-xl border border-gold/10 shadow-md"
                             />
