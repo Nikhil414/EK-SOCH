@@ -23,7 +23,7 @@ import { posts } from "../data/blog-posts";
             <div class="container relative z-10 text-center">
                 <p class="eyebrow fade-up">Knowledge & Wisdom</p>
                 <h1 class="headline fade-up mt-4">
-                    Ek Soch <span class="text-gold">Insights</span>
+                    Ek Soch <span class="text-gold">Article</span>
                 </h1>
                 <p
                     class="text-soft-grey text-xl mt-8 max-w-2xl mx-auto filter-up leading-relaxed"
@@ -44,37 +44,13 @@ import { posts } from "../data/blog-posts";
             </div>
         </section>
 
-        <!-- Category Navigation -->
-        <section class="pb-16 filter-up">
-            <div class="container">
-                <div
-                    class="flex flex-wrap justify-center gap-4 border-b border-soft-grey/10 pb-8"
-                >
-                    {
-                        [
-                            "All Insights",
-                            "Podcasting Tips",
-                            "Personal Branding",
-                            "Mindset",
-                            "Business Growth",
-                            "Communication Skills",
-                        ].map((cat) => (
-                            <button class="px-6 py-2 rounded-full border border-soft-grey/20 text-soft-grey hover:border-gold hover:text-gold transition-all text-sm font-medium whitespace-nowrap">
-                                {cat}
-                            </button>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
         <!-- Featured & Recent Posts -->
-        <section class="section pt-0">
+        <section class="section pt-16">
             <div class="container">
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="flex justify-center">
                     {
-                        posts.map((post) => (
-                            <article class="blog-card group flex flex-col items-start bg-charcoal/20 border border-soft-grey/10 rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-500">
+                        posts.slice(0, 1).map((post) => (
+                            <article class="blog-card group flex flex-col items-start bg-charcoal/20 border border-soft-grey/10 rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-500 max-w-xl">
                                 <div class="aspect-[16/10] w-full overflow-hidden relative">
                                     <img
                                         src={post.image}

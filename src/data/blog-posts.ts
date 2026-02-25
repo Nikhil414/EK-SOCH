@@ -1,31 +1,137 @@
 export const posts = [
     {
-        slug: "power-of-one-thought",
-        title: "The Power of One Thought: Why Mindset Matters Most",
+        slug: "real-estate-trust-responsibility-kaushall-prakash",
+        title: "Real Estate: Trust & Responsibility — Kaushall Prakash on Ek Soch",
         excerpt:
-            "Exploring how a single shift in perspective can change the entire trajectory of your creative journey.",
-        date: "Feb 04, 2026",
-        author: "Ek Soch Team",
-        category: "Mindset",
-        image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+            "The Ek Soch Podcast episode featuring Kaushall Prakash explores the emotional, professional, and ethical dimensions of real estate.",
+        date: "Feb 24, 2026",
+        author: "Nirale Pandya",
+        category: "Podcast",
+        image: "/images/New_Photo.jpeg",
         content: `
-            <p>Everything begins with a thought. Every movement, every revolution, every masterpiece started as a flicker in someone's mind. But what separates a fleeting idea from a life-changing reality?</p>
-            
-            <h2>The Architecture of Belief</h2>
-            <p>Your mindset isn't just a collection of thoughts; it's the lens through which you see the world. When you shift that lens, the world itself seems to change. We often believe we are reacting to reality, but we are actually reacting to our perception of it.</p>
-            
-            <p>In the creative journey, doubt is the enemy. It whispers that you aren't ready, that it's been done before, or that no one will care. But the power of one thought—"I have something valuable to say"—can silence a thousand doubts.</p>
+            <div class="mb-12">
+                <p class="text-xl"><strong>Mumbai:</strong> Real estate is often associated with property prices, investment returns, and infrastructure development. However, in a recent episode of the <strong>Ek Soch Podcast</strong>, real estate professional <strong>Kaushall Prakash</strong> highlighted the deeper responsibilities that come with every property transaction.</p>
+                <p class="text-xl">Speaking on the show, Kaushall Prakash said that buying a home is not merely a financial decision, but a life-changing milestone that affects families for generations.</p>
+                <br>
+                <blockquote>
+                    <p class="text-2xl md:text-2xl text-off-white font-serif leading-tight  m-0!">“Every deal carries someone’s dreams and future,” he said during the conversation. “It is a responsibility that goes far beyond paperwork.”</p>
+                </blockquote>
+                <br>
+            </div>
 
-            <h2>Turning Thought into Action</h2>
-            <p>Thoughts remain intangible until they are anchored by action. The bridge between the mental and the physical is execution. It doesn't have to be perfect; it just has to be present.</p>
             
-            <ul>
-                <li><strong>Start Small:</strong> Don't try to build the whole movement in a day. lay one brick.</li>
-                <li><strong>Be Consistent:</strong> Frequency creates frequency. It builds a rhythm that others can tune into.</li>
-                <li><strong>Embrace Failure:</strong> See it not as a stop sign, but as a data point.</li>
-            </ul>
 
-            <p>The journey of a thousand miles doesn't just begin with a single step; it begins with the single thought that the destination is worth reaching.</p>
+            <div class="space-y-10">
+                <section>
+                    <h2 class="text-xl font-bold font-serif text-off-white mb-4 pb-3 border-b border-soft-grey/15">Property Decisions and Their Impact on Families</h2>
+                    <p class="text-xl">During the episode, Prakash discussed how home ownership plays a crucial role in shaping social and financial stability in India. For many families, purchasing a home represents years of savings and long-term planning. According to him, real estate decisions influence children's education, lifestyle choices, and long-term security.</p>
+                    <p class="text-xl">He shared examples of families who struggled for years before securing their own homes, emphasising the emotional significance of such moments.</p>
+                    <br>
+                    <blockquote>
+                        <p class="text-2xl md:text-3xl text-off-white font-serif  m-0!">"Behind every file is a family waiting for certainty," he noted.</p>
+                    </blockquote>
+                    <br>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold font-serif text-off-white mb-4 pb-3 border-b border-soft-grey/15">Trust and Ethical Responsibility in Real Estate</h2>
+                    <p class="text-xl">A major theme of the discussion was trust between buyers and real estate professionals. Home buyers often invest their lifetime savings into a single property, expecting transparency and legal clarity. Prakash stressed that this trust places a moral obligation on developers and agents.</p>
+                    
+                    <!-- Photo beside quote — newspaper style -->
+                    <div class="my-8 flex flex-col md:flex-row gap-6 items-start not-prose">
+                        <div class="flex-shrink-0 w-full md:w-44 group relative">
+                            <div class="absolute -inset-1 bg-gold/20 rounded-xl blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                            <img 
+                                src="/images/kaushall.jpeg" 
+                                alt="Kaushall Prakash" 
+                                class="relative w-full aspect-[4/5] object-cover rounded-xl border border-gold/10 shadow-md"
+                            />
+                            <p class="mt-2 text-center text-soft-grey/40 text-[10px] italic">Kaushall Prakash</p>
+                        </div>
+                        <div class="flex-grow pt-1 space-y-4">
+                            <p class="text-xl md:text-xl text-off-white  leading-relaxed border-l-2 border-gold/40 pl-4"><span class="text-gold font-bold text-2xl leading-none">"</span>In this profession, integrity is not optional. It is the foundation of sustainable success," says Kaushall Prakash, emphasizing the human element in every square foot developed."</p>
+                            <p class="text-xl md:text-xl text-off-white leading-relaxed border-l-2 border-gold/20 pl-4 ">He pointed out that ethical practices, clear communication, and accountability are essential to building long-term credibility in the industry.</p>
+                        </div>
+                    </div>
+                    <br>
+                    <blockquote>
+                        <p class="text-2xl md:text-3xl text-off-white font-serif  m-0!">"In this profession, integrity is not optional. It is the foundation of sustainable success," he said.</p>
+                    </blockquote>
+                    <br>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold font-serif text-off-white mb-4 pb-3 border-b border-soft-grey/15">Inside the Realities of the Property Sector</h2>
+                    <p class="text-xl">The podcast also offered insights into the behind-the-scenes challenges of the real estate industry, including regulatory approvals, documentation processes, project timelines, and changing market conditions.</p>
+                    <p class="text-xl">Prakash explained that these factors directly affect customer experience and project delivery. He urged buyers to educate themselves about legal and regulatory aspects before making investment decisions. Understanding these realities, he said, helps reduce misunderstandings and improves long-term satisfaction.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold font-serif text-off-white mb-4 pb-3 border-b border-soft-grey/15">The Mindset Behind Long-Term Success</h2>
+                    <p class="text-xl">According to Kaushall Prakash, success in real estate is driven more by mindset than short-term profits. He identified key values such as empathy, discipline, and customer-centric thinking as essential for professionals in the sector.</p>
+                    <br>
+                    <blockquote>
+                        <p class="text-2xl md:text-3xl text-off-white font-serif  m-0!">"Success is not measured by commissions alone, but by how many lives you positively impact," he remarked.</p>
+                    </blockquote>
+                    <br>
+                    <p class="text-xl">This approach, he believes, will play a critical role in strengthening trust in the industry.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold font-serif text-off-white mb-4 pb-3 border-b border-soft-grey/15">Relevance for Buyers and Investors</h2>
+                    <p class="text-xl">The episode has resonated with first-time home buyers, investors, and young professionals seeking guidance in a complex market. By focusing on real-life experiences and ethical practices, the conversation encourages audiences to approach property decisions with greater awareness and responsibility.</p>
+                    <p class="text-xl">Industry observers note that such discussions are increasingly important as India's real estate sector continues to expand.</p>
+                </section>
+            </div>
+
+            <div class="aspect-video w-full my-16 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(212,175,55,0.15)] border border-gold/10">
+                <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/dYAG_vdC5n8"
+                    title="Real Estate Is About Trust and Responsibility | Kaushall Prakash | Ek Soch Podcast"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="mt-20 p-8 md:p-10 bg-charcoal/30 border border-soft-grey/10 rounded-[2rem] backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
+                    <div class="w-24 h-24 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center overflow-hidden shrink-0 shadow-xl">
+                        <img src="https://ui-avatars.com/api/?name=Nirale+Pandya&background=D4AF37&color=fff&size=200" alt="Nirale Pandya" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-3xl font-serif text-off-white mb-2">Nirale Pandya</h3>
+                        <p class="text-gold text-sm tracking-[0.2em] uppercase font-bold">Entrepreneur | Podcaster</p>
+                    </div>
+                </div>
+                
+                <p class="text-soft-grey text-lg leading-relaxed mb-10 text-center md:text-left">
+                    "I help businesses grow through strategic PR, Branding, Business Consultation, Social Media Management, Digital Marketing, and Podcasting."
+                </p>
+
+                <div class="bg-charcoal/40 p-6 md:p-8 rounded-2xl border border-soft-grey/5 mb-10 text-center md:text-left">
+                    <p class="text-off-white font-serif text-xl mb-6">📅 Book a One-to-One Business Consultation:</p>
+                    <a href="https://calendly.com/niralepandya/30min" target="_blank" class="btn-primary px-10 py-4 shadow-gold/20 shadow-lg inline-flex">Schedule Your Session</a>
+                </div>
+
+                <div class="pt-8 border-t border-soft-grey/10">
+                    <p class="text-soft-grey text-xs mb-6 font-bold uppercase tracking-[0.3em] text-center md:text-left opacity-50">🔗 Connect With Me</p>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-8 gap-y-4 text-sm font-medium">
+                        <a href="https://www.linkedin.com/in/niralepandya/" class="text-off-white hover:text-gold transition-all duration-300">LinkedIn</a>
+                        <a href="https://www.instagram.com/niralepandya/" class="text-off-white hover:text-gold transition-all duration-300">Instagram</a>
+                        <a href="https://www.facebook.com/NiralePandya/" class="text-off-white hover:text-gold transition-all duration-300">Facebook</a>
+                        <a href="https://www.niirmaangrowthhub.com/" class="text-off-white hover:text-gold transition-all duration-300">Website</a>
+                        <a href="https://go.niralepandya.com/podcast-2/" class="text-off-white hover:text-gold transition-all duration-300">Podcast Landing Page</a>
+                        <a href="https://niirmaangrowthhub.substack.com/" class="text-off-white hover:text-gold transition-all duration-300">NewsLetter</a>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-soft-grey/5 text-center text-[10px] text-soft-grey/40 tracking-widest uppercase">
+                    &copy; 2026 Niirmaan Growth Hub
+                </div>
+            </div>
         `
     },
     {

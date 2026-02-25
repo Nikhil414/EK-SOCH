@@ -3,16 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import { posts } from "../../data/blog-posts";
-import {
-    User,
-    Calendar,
-    ArrowLeft,
-    Clock,
-    Share2,
-    Facebook,
-    Twitter,
-    Linkedin,
-} from "lucide-astro";
+import { ArrowLeft, Clock, BookOpen } from "lucide-astro";
 
 export async function getStaticPaths() {
     return posts.map((post) => ({
@@ -22,205 +13,256 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+
+// Helper to highlight specific words in the title
+const highlightTitle = (title: string) => {
+    let highlighted = title;
+    highlighted = highlighted.replace(
+        /Real Estate/g,
+        '<span class="text-gold">Real Estate</span>',
+    );
+    highlighted = highlighted.replace(
+        /Ek Soch/g,
+        '<span class="text-gold">Ek Soch</span>',
+    );
+    return highlighted;
+};
+
+const highlightedTitle = highlightTitle(post.title);
 ---
 
 <Layout title={`${post.title} | Ek Soch`}>
     <Navbar />
 
     <main class="bg-deep-black min-h-screen">
-        <!-- Progress Bar (Optional, can add JS for scroll) -->
-        <div class="fixed top-0 left-0 w-full h-1 z-50 bg-charcoal">
-            <div class="h-full bg-gold w-0" id="reading-progress"></div>
+        <!-- Reading progress bar -->
+        <div class="fixed top-0 left-0 w-full h-[3px] z-50 bg-charcoal/50">
+            <div
+                class="h-full bg-gold w-0 transition-all"
+                id="reading-progress"
+            >
+            </div>
         </div>
 
-        <!-- Hero Section -->
-        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img
-                    src={post.image}
-                    alt={post.title}
-                    class="w-full h-full object-cover opacity-20"
-                />
+        <!-- ===== TOI-STYLE ARTICLE HEADER ===== -->
+        <header class="pt-28 pb-0 border-b border-soft-grey/10">
+            <div class="max-w-[1200px] mx-auto px-4 md:px-8">
+                <!-- Breadcrumb / Category Bar -->
                 <div
-                    class="absolute inset-0 bg-gradient-to-t from-deep-black via-deep-black/90 to-transparent"
+                    class="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] font-bold mb-6 pb-4 border-b border-soft-grey/10 fade-up"
                 >
-                </div>
-                <div
-                    class="absolute inset-0 bg-gradient-to-b from-deep-black/60 to-transparent"
-                >
-                </div>
-            </div>
-
-            <div class="container relative z-10 px-4 md:px-6">
-                <div class="max-w-4xl mx-auto text-center">
                     <a
                         href="/blog"
-                        class="inline-flex items-center gap-2 text-soft-grey hover:text-gold transition-colors mb-8 text-sm uppercase tracking-widest font-medium fade-up"
+                        class="text-soft-grey/50 hover:text-gold transition-colors flex items-center gap-1.5"
                     >
-                        <ArrowLeft class="w-4 h-4" /> Back to Insights
+                        <ArrowLeft class="w-3 h-3" />
+                        Blog
                     </a>
+                    <span class="text-soft-grey/20">/</span>
+                    <span class="text-gold">{post.category}</span>
+                </div>
 
-                    <div class="mb-6 fade-up delay-100">
-                        <span
-                            class="px-4 py-2 rounded-full border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest bg-gold/5 backdrop-blur-md"
-                        >
-                            {post.category}
-                        </span>
+                <!-- Headline — Responsive font sizes, optimized for 2 lines -->
+                <h1
+                    class="font-serif text-off-white leading-[1.15] mb-8 fade-up delay-100 max-w-[950px]
+                           text-[1.6rem] sm:text-[2rem] md:text-[2.4rem] lg:text-[3rem]"
+                    set:html={highlightedTitle}
+                />
+
+                <!-- TOI-style author + meta bar (Responsive stacking) -->
+                <div
+                    class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-t border-b border-soft-grey/10 mb-10 fade-up delay-200"
+                >
+                    <div class="flex items-center gap-4">
+                        <!-- Author avatar -->
+                        <div class="relative flex-shrink-0">
+                            <div
+                                class="absolute -inset-0.5 bg-gold/30 rounded-full blur opacity-60"
+                            >
+                            </div>
+                            <img
+                                src="https://ui-avatars.com/api/?name=Nirale+Pandya&background=D4AF37&color=fff&size=200"
+                                alt={post.author}
+                                class="relative w-10 h-10 rounded-full border border-gold/40 object-cover"
+                            />
+                        </div>
+                        <div class="leading-tight">
+                            <p class="text-off-white text-sm font-semibold">
+                                {post.author}
+                            </p>
+                            <p class="text-soft-grey/50 text-xs">
+                                Founder, Niirmaan Growth Hub
+                            </p>
+                        </div>
                     </div>
-
-                    <h1
-                        class="text-4xl md:text-5xl lg:text-7xl font-serif text-off-white leading-tight mb-8 fade-up delay-200"
-                    >
-                        {post.title}
-                    </h1>
 
                     <div
-                        class="flex flex-wrap items-center justify-center gap-6 text-soft-grey text-sm font-medium fade-up delay-300"
+                        class="flex items-center gap-3 text-soft-grey/50 text-xs border-t border-soft-grey/5 pt-4 sm:border-t-0 sm:pt-0"
                     >
-                        <div class="flex items-center gap-2">
-                            <div
-                                class="w-10 h-10 rounded-full bg-charcoal border border-soft-grey/10 overflow-hidden"
-                            >
-                                <!-- Using a generic avatar here or could be added to data -->
-                                <User
-                                    class="w-full h-full p-2 text-soft-grey"
-                                />
-                            </div>
-                            <span class="text-off-white">{post.author}</span>
-                        </div>
-                        <span class="w-1 h-1 rounded-full bg-soft-grey/30"
-                        ></span>
-                        <div class="flex items-center gap-2">
-                            <Calendar class="w-4 h-4" />
-                            {post.date}
-                        </div>
-                        <span class="w-1 h-1 rounded-full bg-soft-grey/30"
-                        ></span>
-                        <div class="flex items-center gap-2">
-                            <Clock class="w-4 h-4" />
-                            5 min read
+                        <Clock class="w-3.5 h-3.5" />
+                        <span>Updated: {post.date}, 03:34 PM IST</span>
+                    </div>
+                </div>
+
+                <!-- Featured Hero Image (Constrained to content width) -->
+                <div class="w-full mb-10 fade-up delay-300">
+                    <div
+                        class="relative rounded-2xl overflow-hidden aspect-video md:aspect-[16/7] shadow-2xl border border-soft-grey/10"
+                    >
+                        <img
+                            src={post.image}
+                            alt={post.title}
+                            class="w-full h-full object-cover"
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-deep-black/60 to-transparent"
+                        >
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- Content Section -->
-        <article class="relative z-10 pb-24">
-            <div class="container px-4 md:px-6">
-                <div
-                    class="grid lg:grid-cols-[1fr_300px] gap-12 max-w-6xl mx-auto"
-                >
-                    <!-- Main Content -->
-                    <div class="max-w-3xl mx-auto lg:mx-0">
-                        <div
-                            class="prose prose-lg prose-invert text-soft-grey/90 leading-relaxed font-light
-                        prose-headings:font-serif prose-headings:text-off-white prose-headings:font-medium
-                        prose-p:mb-6 prose-strong:text-off-white prose-strong:font-bold
-                        prose-a:text-gold prose-a:no-underline hover:prose-a:underline
-                        prose-blockquote:border-l-gold prose-blockquote:bg-charcoal/20 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:italic prose-blockquote:text-off-white
-                        prose-ul:list-disc prose-ul:pl-6 prose-li:mb-2
-                        marker:prose-li:text-gold"
-                        >
-                            <p
-                                class="lead text-xl md:text-2xl text-off-white font-serif italic mb-10 border-l-4 border-gold pl-6"
-                            >
-                                {post.excerpt}
-                            </p>
+        <!-- ===== TOI-STYLE 2-COLUMN BODY ===== -->
+        <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12">
+                <!-- ---- LEFT: Main Article ---- -->
+                <article class="min-w-0">
+                    <!-- Lead / Summary pull-quote -->
+                    <p
+                        class="text-xl md:text-2xl text-off-white/90 font-serif italic font-medium border-l-[3px] border-gold pl-6 mb-10 leading-snug"
+                    >
+                        {post.excerpt}
+                    </p>
 
-                            <div set:html={post.content} />
-                        </div>
-
-                        <!-- Share Section -->
-                        <div
-                            class="mt-16 pt-8 border-t border-soft-grey/10 flex items-center justify-between"
-                        >
-                            <p class="text-off-white font-serif text-lg">
-                                Share this article
-                            </p>
-                            <div class="flex gap-4">
-                                <button
-                                    class="w-10 h-10 rounded-full bg-charcoal flex items-center justify-center text-soft-grey hover:bg-gold hover:text-deep-black transition-all"
-                                >
-                                    <Twitter class="w-5 h-5" />
-                                </button>
-                                <button
-                                    class="w-10 h-10 rounded-full bg-charcoal flex items-center justify-center text-soft-grey hover:bg-gold hover:text-deep-black transition-all"
-                                >
-                                    <Linkedin class="w-5 h-5" />
-                                </button>
-                                <button
-                                    class="w-10 h-10 rounded-full bg-charcoal flex items-center justify-center text-soft-grey hover:bg-gold hover:text-deep-black transition-all"
-                                >
-                                    <Facebook class="w-5 h-5" />
-                                </button>
-                            </div>
-                        </div>
+                    <div class="flex items-center gap-3 mb-10">
+                        <div class="flex-grow h-px bg-soft-grey/15"></div>
+                        <BookOpen class="w-4 h-4 text-gold/50 flex-shrink-0" />
+                        <div class="flex-grow h-px bg-soft-grey/15"></div>
                     </div>
 
-                    <!-- Sidebar -->
-                    <aside class="space-y-12">
-                        <!-- Newsletter Widget -->
-                        <div
-                            class="p-8 rounded-2xl bg-charcoal/30 border border-soft-grey/10 sticky top-32"
-                        >
-                            <p class="eyebrow text-gold mb-4">Newsletter</p>
-                            <h3 class="text-2xl font-serif text-off-white mb-4">
-                                Join the Movement
-                            </h3>
-                            <p class="text-soft-grey text-sm mb-6">
-                                Get insights on storytelling and growth
-                                delivered to your inbox weekly.
-                            </p>
-                            <div class="w-full">
-                                <iframe
-                                    src="https://niirmaangrowthhub.substack.com/embed"
-                                    width="480"
-                                    height="320"
-                                    style="border:1px solid #EEE; background:white;"
-                                    frameborder="0"
-                                    scrolling="no"
-                                    class="w-full rounded-xl shadow-lg"
-                                ></iframe>
-                            </div>
-                        </div>
+                    <div
+                        class="prose prose-lg prose-invert max-w-none
+                               text-off-white/90 leading-[1.65] font-normal
+                               prose-headings:font-serif prose-headings:text-white prose-headings:font-bold prose-headings:leading-tight prose-headings:mt-16 prose-headings:mb-10
+                               prose-h2:text-4xl prose-h2:border-b prose-h2:border-soft-grey/15 prose-h2:pb-5
+                               prose-p:mb-12 prose-p:text-[24px] md:prose-p:text-[28px] prose-p:text-off-white/90
+                               prose-strong:text-white prose-strong:font-bold
+                               prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:my-16 prose-blockquote:font-serif prose-blockquote:italic
+                               prose-ul:list-disc prose-ul:pl-10 prose-li:mb-6 prose-li:text-[24px] md:prose-li:text-[28px] prose-li:text-off-white/90
+                               marker:text-gold/60
+                               prose-img:rounded-xl"
+                    >
+                        <div set:html={post.content} />
+                    </div>
 
-                        <!-- Related Topics -->
-                        <div>
+                    <div
+                        class="mt-16 pt-6 border-t border-soft-grey/10 flex flex-wrap items-center justify-between gap-4"
+                    >
+                        <p class="text-soft-grey/40 text-xs">
+                            Published: {post.date} | Category: {post.category}
+                        </p>
+                    </div>
+                </article>
+
+                <!-- ---- RIGHT: Sidebar ---- -->
+                <aside class="hidden lg:block">
+                    <div class="sticky top-28 space-y-8">
+                        <div
+                            class="bg-charcoal/30 border border-soft-grey/10 rounded-2xl p-6"
+                        >
                             <h3
-                                class="text-lg font-serif text-off-white mb-6 border-b border-soft-grey/10 pb-2"
+                                class="text-xs font-bold uppercase tracking-[0.18em] text-gold border-b border-gold/30 pb-2 mb-4"
                             >
-                                Related Topics
+                                About This Podcast
                             </h3>
-                            <div class="flex flex-wrap gap-2">
-                                {
-                                    [
-                                        "Personal Branding",
-                                        "Storytelling",
-                                        "Growth",
-                                        "Mindset",
-                                    ].map((tag) => (
-                                        <a
-                                            href="/blog"
-                                            class="px-3 py-1.5 bg-charcoal/50 text-soft-grey text-xs rounded-md hover:text-gold hover:bg-charcoal transition-colors"
-                                        >
-                                            #{tag}
-                                        </a>
-                                    ))
-                                }
-                            </div>
+                            <p
+                                class="text-soft-grey/70 text-sm leading-relaxed"
+                            >
+                                <strong class="text-off-white">Ek Soch</strong> is
+                                a podcast at the intersection of ideas, enterprise,
+                                and transformation — built for thinkers who act.
+                            </p>
+                            <a
+                                href="https://open.spotify.com/show/03fktpw7KILmHseu9aa6IZ?si=oEuhxQ-XS_6Srt29RSjLcQ&nd=1&dlsi=964337a3ac19456b"
+                                target="_blank"
+                                class="mt-4 inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-widest hover:underline"
+                            >
+                                Listen Now →
+                            </a>
                         </div>
-                    </aside>
-                </div>
+
+                        <div
+                            class="bg-charcoal/30 border border-soft-grey/10 rounded-2xl p-6"
+                        >
+                            <h3
+                                class="text-xs font-bold uppercase tracking-[0.18em] text-gold border-b border-gold/30 pb-2 mb-4"
+                            >
+                                About The Author
+                            </h3>
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -inset-0.5 bg-gold/20 rounded-full blur"
+                                    >
+                                    </div>
+                                    <img
+                                        src="https://ui-avatars.com/api/?name=Nirale+Pandya&background=D4AF37&color=fff&size=200"
+                                        alt={post.author}
+                                        class="relative w-12 h-12 rounded-full border border-gold/30 object-cover"
+                                    />
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-off-white font-semibold text-sm"
+                                    >
+                                        {post.author}
+                                    </p>
+                                    <p class="text-soft-grey/50 text-xs">
+                                        Founder, Niirmaan Growth Hub
+                                    </p>
+                                </div>
+                            </div>
+                            <p
+                                class="text-soft-grey/60 text-xs leading-relaxed"
+                            >
+                                Storyteller, entrepreneur, and the voice behind
+                                Ek Soch. Helping ideas become movements.
+                            </p>
+                        </div>
+
+                        <div
+                            class="bg-gradient-to-br from-gold/10 to-charcoal/30 border border-gold/20 rounded-2xl p-6"
+                        >
+                            <h3
+                                class="text-xs font-bold uppercase tracking-[0.18em] text-gold border-b border-gold/20 pb-2 mb-3"
+                            >
+                                Join The Newsletter
+                            </h3>
+                            <p
+                                class="text-soft-grey/70 text-sm mb-4 leading-relaxed"
+                            >
+                                Weekly insights on ideas, growth & storytelling.
+                            </p>
+                            <a
+                                href="https://niirmaangrowthhub.substack.com/"
+                                target="_blank"
+                                class="block w-full text-center py-2.5 px-4 rounded-xl bg-gold text-deep-black text-sm font-bold tracking-wide hover:bg-gold/80 transition-colors"
+                            >
+                                Subscribe Free
+                            </a>
+                        </div>
+                    </div>
+                </aside>
             </div>
-        </article>
+        </div>
     </main>
 
     <Footer />
 </Layout>
 
 <script>
-    // Simple reading progress bar
+    // Reading progress bar
     window.addEventListener("scroll", () => {
         const winScroll =
             document.body.scrollTop || document.documentElement.scrollTop;
@@ -228,26 +270,23 @@ const { post } = Astro.props;
             document.documentElement.scrollHeight -
             document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
-        const progressBar = document.getElementById("reading-progress");
-        if (progressBar) {
-            progressBar.style.width = scrolled + "%";
-        }
+        const bar = document.getElementById("reading-progress");
+        if (bar) bar.style.width = scrolled + "%";
     });
 
     document.addEventListener("DOMContentLoaded", () => {
         const gsap = (window as any).gsap;
         if (!gsap) return;
-
         gsap.fromTo(
             ".fade-up",
-            { y: 30, opacity: 0 },
+            { y: 24, opacity: 0 },
             {
                 y: 0,
                 opacity: 1,
-                duration: 0.8,
-                stagger: 0.15,
+                duration: 0.7,
+                stagger: 0.12,
                 ease: "power3.out",
-                delay: 0.2,
+                delay: 0.1,
             },
         );
     });
