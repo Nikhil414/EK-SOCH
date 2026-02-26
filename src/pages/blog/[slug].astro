@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import { posts } from "../../data/blog-posts";
-import { ArrowLeft, Clock, BookOpen } from "lucide-astro";
+import { ArrowLeft, Clock } from "lucide-astro";
 
 export async function getStaticPaths() {
     return posts.map((post) => ({
@@ -31,7 +31,19 @@ const highlightTitle = (title: string) => {
 const highlightedTitle = highlightTitle(post.title);
 ---
 
-<Layout title={`${post.title} | Ek Soch`}>
+<Layout
+    title={`${post.title} | Ek Soch`}
+    ogTitle={post.title}
+    description={post.excerpt}
+    ogImage={post.image}
+    ogType="article"
+>
+    <!-- 
+      SEO Asset Guidelines:
+      - Place OG images in /public/images/
+      - Recommended size: 1200x630 pixels
+      - File size: <300KB for optimal loading on WhatsApp/Social Media
+    -->
     <Navbar />
 
     <main class="bg-deep-black min-h-screen">
@@ -135,21 +147,15 @@ const highlightedTitle = highlightTitle(post.title);
                         {post.excerpt}
                     </p>
 
-                    <div class="flex items-center gap-3 mb-10">
-                        <div class="flex-grow h-px bg-soft-grey/15"></div>
-                        <BookOpen class="w-4 h-4 text-gold/50 flex-shrink-0" />
-                        <div class="flex-grow h-px bg-soft-grey/15"></div>
-                    </div>
-
                     <div
                         class="prose prose-lg prose-invert max-w-none
                                text-off-white/90 leading-[1.65] font-normal
-                               prose-headings:font-serif prose-headings:text-white prose-headings:font-bold prose-headings:leading-tight prose-headings:mt-16 prose-headings:mb-10
+                               prose-headings:font-serif prose-headings:text-white prose-headings:font-bold prose-headings:leading-tight prose-headings:mt-10 prose-headings:mb-6
                                prose-h2:text-4xl prose-h2:border-b prose-h2:border-soft-grey/15 prose-h2:pb-5
-                               prose-p:mb-12 prose-p:text-[24px] md:prose-p:text-[28px] prose-p:text-off-white/90
+                               prose-p:mb-6 prose-p:text-[24px] md:prose-p:text-[28px] prose-p:text-off-white/90
                                prose-strong:text-white prose-strong:font-bold
-                               prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:my-16 prose-blockquote:font-serif prose-blockquote:italic
-                               prose-ul:list-disc prose-ul:pl-10 prose-li:mb-6 prose-li:text-[24px] md:prose-li:text-[28px] prose-li:text-off-white/90
+                               prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:my-8 prose-blockquote:font-serif prose-blockquote:italic
+                               prose-ul:list-disc prose-ul:pl-10 prose-li:mb-4 prose-li:text-[24px] md:prose-li:text-[28px] prose-li:text-off-white/90
                                marker:text-gold/60
                                prose-img:rounded-xl"
                     >

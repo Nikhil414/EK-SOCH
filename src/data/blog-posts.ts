@@ -9,19 +9,18 @@ export const posts = [
         category: "Podcast",
         image: "/images/New_Photo.jpeg",
         content: `
-            <div class="mb-12">
+            <div class="mb-8">
                 <p class="text-xl"><strong>Mumbai:</strong> Real estate is often associated with property prices, investment returns, and infrastructure development. However, in a recent episode of the <strong>Ek Soch Podcast</strong>, real estate professional <strong>Kaushall Prakash</strong> highlighted the deeper responsibilities that come with every property transaction.</p>
                 <p class="text-xl">Speaking on the show, Kaushall Prakash said that buying a home is not merely a financial decision, but a life-changing milestone that affects families for generations.</p>
                 <br>
                 <blockquote>
                     <p class="text-2xl md:text-2xl text-off-white font-serif leading-tight  m-0!">“Every deal carries someone’s dreams and future,” he said during the conversation. “It is a responsibility that goes far beyond paperwork.”</p>
                 </blockquote>
-                <br>
             </div>
 
             
 
-            <div class="space-y-10">
+            <div class="space-y-6">
                 <section>
                     <h2 class="text-xl font-bold font-serif text-off-white mb-4 pb-3 border-b border-soft-grey/15">Property Decisions and Their Impact on Families</h2>
                     <p class="text-xl">During the episode, Prakash discussed how home ownership plays a crucial role in shaping social and financial stability in India. For many families, purchasing a home represents years of savings and long-term planning. According to him, real estate decisions influence children's education, lifestyle choices, and long-term security.</p>
@@ -30,7 +29,7 @@ export const posts = [
                     <blockquote>
                         <p class="text-2xl md:text-3xl text-off-white font-serif  m-0!">"Behind every file is a family waiting for certainty," he noted.</p>
                     </blockquote>
-                    <br>
+               
                 </section>
 
                 <section>
@@ -38,7 +37,7 @@ export const posts = [
                     <p class="text-xl">A major theme of the discussion was trust between buyers and real estate professionals. Home buyers often invest their lifetime savings into a single property, expecting transparency and legal clarity. Prakash stressed that this trust places a moral obligation on developers and agents.</p>
                     
                     <!-- Photo beside quote — newspaper style -->
-                    <div class="my-8 flex flex-col md:flex-row gap-6 items-start not-prose">
+                    <div class="my-6 flex flex-col md:flex-row gap-6 items-start not-prose">
                         <div class="flex-shrink-0 w-full md:w-44 group relative">
                             <div class="absolute -inset-1 bg-gold/20 rounded-xl blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
                             <img 
@@ -53,11 +52,7 @@ export const posts = [
                             <p class="text-xl md:text-xl text-off-white leading-relaxed border-l-2 border-gold/20 pl-4 ">He pointed out that ethical practices, clear communication, and accountability are essential to building long-term credibility in the industry.</p>
                         </div>
                     </div>
-                    <br>
-                    <blockquote>
-                        <p class="text-2xl md:text-3xl text-off-white font-serif  m-0!">"In this profession, integrity is not optional. It is the foundation of sustainable success," he said.</p>
-                    </blockquote>
-                    <br>
+                
                 </section>
 
                 <section>
@@ -84,7 +79,7 @@ export const posts = [
                 </section>
             </div>
 
-            <div class="aspect-video w-full my-16 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(212,175,55,0.15)] border border-gold/10">
+            <div class="aspect-video w-full my-10 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(212,175,55,0.15)] border border-gold/10">
                 <iframe
                     width="100%"
                     height="100%"
@@ -96,7 +91,7 @@ export const posts = [
                 </iframe>
             </div>
 
-            <div class="mt-20 p-8 md:p-10 bg-charcoal/30 border border-soft-grey/10 rounded-[2rem] backdrop-blur-sm">
+            <div class="mt-12 p-8 md:p-10 bg-charcoal/30 border border-soft-grey/10 rounded-[2rem] backdrop-blur-sm">
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
                     <div class="w-24 h-24 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center overflow-hidden shrink-0 shadow-xl">
                         <img src="https://ui-avatars.com/api/?name=Nirale+Pandya&background=D4AF37&color=fff&size=200" alt="Nirale Pandya" class="w-full h-full object-cover"/>
