@@ -57,7 +57,7 @@ const highlightedTitle = highlightTitle(post.title);
         </div>
 
         <!-- ===== TOI-STYLE ARTICLE HEADER ===== -->
-        <header class="pt-28 pb-0 border-b border-soft-grey/10">
+        <header class="pt-16 pb-0 border-b border-soft-grey/10">
             <div class="max-w-[1200px] mx-auto px-4 md:px-8">
                 <!-- Breadcrumb / Category Bar -->
                 <div
@@ -76,14 +76,14 @@ const highlightedTitle = highlightTitle(post.title);
 
                 <!-- Headline — Responsive font sizes, optimized for 2 lines -->
                 <h1
-                    class="font-serif text-off-white leading-[1.15] mb-8 fade-up delay-100 max-w-[950px]
+                    class="font-serif text-off-white leading-[1.15] mb-4 fade-up delay-100 max-w-[950px]
                            text-[1.6rem] sm:text-[2rem] md:text-[2.4rem] lg:text-[3rem]"
                     set:html={highlightedTitle}
                 />
 
                 <!-- TOI-style author + meta bar (Responsive stacking) -->
                 <div
-                    class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-t border-b border-soft-grey/10 mb-10 fade-up delay-200"
+                    class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-t border-b border-soft-grey/10 mb-6 fade-up delay-200"
                 >
                     <div class="flex items-center gap-4">
                         <!-- Author avatar -->
@@ -117,7 +117,7 @@ const highlightedTitle = highlightTitle(post.title);
                 </div>
 
                 <!-- Featured Hero Image (Constrained to content width) -->
-                <div class="w-full mb-10 fade-up delay-300">
+                <div class="w-full mb-6 fade-up delay-300">
                     <div
                         class="relative rounded-2xl overflow-hidden aspect-video md:aspect-[16/7] shadow-2xl border border-soft-grey/10"
                     >
@@ -136,13 +136,13 @@ const highlightedTitle = highlightTitle(post.title);
         </header>
 
         <!-- ===== TOI-STYLE 2-COLUMN BODY ===== -->
-        <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-10">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-6">
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12">
                 <!-- ---- LEFT: Main Article ---- -->
                 <article class="min-w-0">
                     <!-- Lead / Summary pull-quote -->
                     <p
-                        class="text-xl md:text-2xl text-off-white/90 font-serif italic font-medium border-l-[3px] border-gold pl-6 mb-10 leading-snug"
+                        class="text-xl md:text-2xl text-off-white/90 font-serif font-medium border-l-[3px] border-gold pl-6 mb-6 leading-snug"
                     >
                         {post.excerpt}
                     </p>
@@ -150,12 +150,12 @@ const highlightedTitle = highlightTitle(post.title);
                     <div
                         class="prose prose-lg prose-invert max-w-none
                                text-off-white/90 leading-[1.65] font-normal
-                               prose-headings:font-serif prose-headings:text-white prose-headings:font-bold prose-headings:leading-tight prose-headings:mt-10 prose-headings:mb-6
+                               prose-headings:font-serif prose-headings:text-white prose-headings:font-bold prose-headings:leading-tight prose-headings:mt-6 prose-headings:mb-3
                                prose-h2:text-4xl prose-h2:border-b prose-h2:border-soft-grey/15 prose-h2:pb-5
-                               prose-p:mb-6 prose-p:text-[24px] md:prose-p:text-[28px] prose-p:text-off-white/90
+                               prose-p:mb-3 prose-p:text-[24px] md:prose-p:text-[28px] prose-p:text-off-white/90
                                prose-strong:text-white prose-strong:font-bold
-                               prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:my-8 prose-blockquote:font-serif prose-blockquote:italic
-                               prose-ul:list-disc prose-ul:pl-10 prose-li:mb-4 prose-li:text-[24px] md:prose-li:text-[28px] prose-li:text-off-white/90
+                               prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:my-4 prose-blockquote:font-serif
+                               prose-ul:list-disc prose-ul:pl-10 prose-li:mb-2 prose-li:text-[24px] md:prose-li:text-[28px] prose-li:text-off-white/90
                                marker:text-gold/60
                                prose-img:rounded-xl"
                     >

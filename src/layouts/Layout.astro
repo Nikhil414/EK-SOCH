@@ -27,12 +27,21 @@ const resolvedOgImage = new URL(ogImage, Astro.site);
     <meta name="description" content={description} />
     <meta name="author" content="Ek Soch" />
 
+    <!-- 
+      SEO Asset Guidelines:
+      - Place OG images in /public/images/
+      - Recommended size: 1200x630 pixels (Aspect Ratio 1.91:1)
+      - File size: <300KB for optimal rendering on WhatsApp/Messenger
+    -->
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Ek Soch" />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
