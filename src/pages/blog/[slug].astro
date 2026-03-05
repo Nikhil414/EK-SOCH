@@ -14,6 +14,8 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 
+const pageTitle = (post as any).metaTitle || `${post.title} | Ek Soch`;
+
 // Helper to highlight specific words in the title
 const highlightTitle = (title: string) => {
     let highlighted = title;
@@ -25,6 +27,14 @@ const highlightTitle = (title: string) => {
         /Ek Soch/g,
         '<span class="text-gold">Ek Soch</span>',
     );
+    highlighted = highlighted.replace(
+        /Sanjay Upadhyay/g,
+        '<span class="text-gold">Sanjay Upadhyay</span>',
+    );
+    highlighted = highlighted.replace(
+        /Borivali/g,
+        '<span class="text-gold">Borivali</span>',
+    );
     return highlighted;
 };
 
@@ -32,8 +42,8 @@ const highlightedTitle = highlightTitle(post.title);
 ---
 
 <Layout
-    title={`${post.title} | Ek Soch`}
-    ogTitle={post.title}
+    title={pageTitle}
+    ogTitle={(post as any).metaTitle || post.title}
     description={post.excerpt}
     ogImage={post.image}
     ogType="article"
