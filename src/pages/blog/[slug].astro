@@ -134,7 +134,7 @@ const highlightedTitle = highlightTitle(post.title);
                         <img
                             src={post.image}
                             alt={post.title}
-                            class="w-full h-full object-cover"
+                            class={`w-full h-full object-cover ${(post as any).imagePosition || "object-center"}`}
                         />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-deep-black/60 to-transparent"
@@ -184,30 +184,6 @@ const highlightedTitle = highlightTitle(post.title);
                 <!-- ---- RIGHT: Sidebar ---- -->
                 <aside class="hidden lg:block">
                     <div class="sticky top-28 space-y-8">
-                        <div
-                            class="bg-charcoal/30 border border-soft-grey/10 rounded-2xl p-6"
-                        >
-                            <h3
-                                class="text-xs font-bold uppercase tracking-[0.18em] text-gold border-b border-gold/30 pb-2 mb-4"
-                            >
-                                About This Podcast
-                            </h3>
-                            <p
-                                class="text-soft-grey/70 text-sm leading-relaxed"
-                            >
-                                <strong class="text-off-white">Ek Soch</strong> is
-                                a podcast at the intersection of ideas, enterprise,
-                                and transformation — built for thinkers who act.
-                            </p>
-                            <a
-                                href="https://open.spotify.com/show/03fktpw7KILmHseu9aa6IZ?si=oEuhxQ-XS_6Srt29RSjLcQ&nd=1&dlsi=964337a3ac19456b"
-                                target="_blank"
-                                class="mt-4 inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-widest hover:underline"
-                            >
-                                Listen Now →
-                            </a>
-                        </div>
-
                         <div
                             class="bg-charcoal/30 border border-soft-grey/10 rounded-2xl p-6"
                         >

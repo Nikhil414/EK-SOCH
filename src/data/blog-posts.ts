@@ -138,7 +138,8 @@ export const posts = [
         date: "Mar 05, 2026",
         author: "Nirale Pandya",
         category: "Podcast",
-        image: "/images/sanjay_bhai.png",
+        image: "/images/SanJay_Bhai_Upscale_imresizer.jpg",
+        imagePosition: "object-top",
         content: `
             <div class="mb-8">
                 <p class="text-xl"><strong>Mumbai:</strong> Political journeys often begin with grand campaigns and large rallies. But for <strong>Sanjay Upadhyay</strong>, the path to leadership started with something far simpler — a college election decided by a coin toss.</p>
