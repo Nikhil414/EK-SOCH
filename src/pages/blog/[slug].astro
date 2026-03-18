@@ -35,6 +35,14 @@ const highlightTitle = (title: string) => {
         /Borivali/g,
         '<span class="text-gold">Borivali</span>',
     );
+    highlighted = highlighted.replace(
+        /Aaman Trikha/g,
+        '<span class="text-gold">Aaman Trikha</span>',
+    );
+    highlighted = highlighted.replace(
+        /Shivam Firewala/g,
+        '<span class="text-gold">Shivam Firewala</span>',
+    );
     return highlighted;
 };
 
@@ -45,7 +53,7 @@ const highlightedTitle = highlightTitle(post.title);
     title={pageTitle}
     ogTitle={(post as any).metaTitle || post.title}
     description={post.excerpt}
-    ogImage={post.image}
+    ogImage={(post as any).ogImage || post.image}
     ogType="article"
 >
     <!-- 
